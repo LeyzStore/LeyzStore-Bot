@@ -1,6 +1,4 @@
 {
   "prefix": "!bot ",
-  "token": "YOUR-DISCORD-BOT-TOKEN-HERE",
-  "host": "HOST",
-  "key": "KEY"
+  "token": "YOUR-DISCORD-BOT-TOKEN-HERE"
 }

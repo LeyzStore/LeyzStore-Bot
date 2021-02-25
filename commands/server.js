@@ -14,7 +14,17 @@ module.exports = {
         if(args[0] == "test") {
             const Application = new node.NodeactylApplication(host, key);
             let server = await Application.getAllServers();
-            console.log(server)
+            for(let i = 0; i< server.length; i++) {
+                let name = server[i].attributes.name;
+                let id = server[i].attributes.id;
+                let uuid = server[i].attributes.uuid;
+                let uuid_short = server[i].attributes.identifier;
+                let ram = server[i].attributes.limits.memory;
+                let disk = server[i].attributes.limits.disk;
+                let owner = server[i].attributes.user;
+                console.log(name)
+                console.log(uuid_short)
+              }
         }
     },
 };

@@ -1,5 +1,4 @@
 {
-  "owners": ["321665808830955521", "YOUR-SECOND-PARTNER-ID"],
-  "prefix": ".",
-  "token": "TOKEN BOT"
+  "prefix": "!bot ",
+  "token": "YOUR-DISCORD-BOT-TOKEN-HERE"
 }

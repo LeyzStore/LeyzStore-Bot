@@ -15,7 +15,8 @@ module.exports = {
     args: true, // Specified that this command doesn't need any data other than the command
     usage: '', // Help text to explain how to use the command (if it had any arguments)
     async execute(message, args) {
-        if(args[0] == "test") {
+//START OF LIST SERVER
+        if(args[0] == "list") {
             Admin.login(host, key, (logged_in, err) => {
                 console.log(logged_in);
                 /** If you want call the function in here, 
@@ -47,5 +48,6 @@ module.exports = {
                 message.channel.send(ServerINFO)
               }
         }
+//END OF LIST SERVER
     },
 };

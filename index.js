@@ -1,7 +1,10 @@
-const fs = require('fs');                               // Loads the Filesystem library
+const fs = require('fs');                     // Loads the Filesystem library
 const Discord = require('discord.js');                  // Loads the discord API library
-const { prefix, token } = require('./config.json');     // Loads the "token" and "prefix" values from the config file
-
+const { prefix, token, host, key } = require('./config.json');     // Loads the "token" and "prefix" values from the config file
+const node = require('nodeactyl-beta');
+const node2 = require('nodeactyl-v1-support');
+const Admin = node2.Admin;
+const Application = node.NodeactylApplication(host, key);
 const client = new Discord.Client(); // Initiates the client
 client.commands = new Discord.Collection(); // Creates an empty list in the client object to store all commands
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js')); // Loads the code for each command from the "commands" folder
@@ -13,7 +16,13 @@ for (const file of commandFiles) {
 }
 
 const cooldowns = new Discord.Collection(); // Creates an empty list for storing timeouts so people can't spam with commands
-
+Admin.login(host, key, (logged_in, err) => {
+    console.log(logged_in);
+    /** If you want call the function in here, 
+     * But we prefer you do have Application.login() at the top of your
+     * project and use the following syntax:
+     */
+});
 // Starts the bot and makes it begin listening for commands.
 client.on('ready', () => {
     console.log('Bot Online');

@@ -4,9 +4,11 @@
  */
 const { prefix, token, host, key } = require('../config.json');     // Loads the "token" and "prefix" values from the config file
 const node = require('nodeactyl-beta');
-const node2 = require('nodeactyl-v1-support')
+const node2 = require('nodeactyl-v1-support');
 const Admin = node2.Admin;
-const { MessageEmbed } = require("discord.js")
+const { MessageEmbed } = require("discord.js");
+const thousands = require('thousands');
+
 module.exports = {
     name: 'server', // The name of the command
     description: 'Server Control', // The description of the command (for help text)

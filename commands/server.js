@@ -6,6 +6,7 @@ const { prefix, token, host, key } = require('../config.json');     // Loads the
 const node = require('nodeactyl-beta');
 const node2 = require('nodeactyl-v1-support')
 const Admin = node2.Admin;
+const { MessageEmbed } = require("discord.js")
 module.exports = {
     name: 'server', // The name of the command
     description: 'Server Control', // The description of the command (for help text)
@@ -29,8 +30,19 @@ module.exports = {
                 let ram = server[i].attributes.limits.memory;
                 let disk = server[i].attributes.limits.disk;
                 let owner = server[i].attributes.user;
-                console.log(name)
-                console.log(uuid_short)
+                let ServerINFO = new MessageEmbed()
+                    .setAuthor("SERVER LIST", "https://cdn.discordapp.com/attachments/786854213916426240/814077727534612500/depositphotos_81700460-stock-illustration-monogram-l-logo-letter.jpg")
+                    .setColor("RED")
+                    .setTitle(name)
+                    .setDescription(uuid)
+                    .addField("UUID", uuid_short, true)
+                    .addField("ID", id, true)
+                    .addField("OWNER ID", owner, true)
+                    .addField("RAM", thousands(ram, '.'), true)
+                    .addField("DISK", thousands(disk, '.'), true)
+                    .addField("NONE", "NONE :V", true)
+                    .setFooter("Leyz Store", "https://cdn.discordapp.com/attachments/786854213916426240/814077727534612500/depositphotos_81700460-stock-illustration-monogram-l-logo-letter.jpg")
+                message.channel.send(ServerINFO)
               }
         }
     },

@@ -9,7 +9,12 @@ module.exports = {
     usage: '', // Help text to explain how to use the command (if it had any arguments)
     execute(message, args) {
         if(args[0] == "test") {
-            message.channel.send("TEST")
+            Application.getAllServers().then(servers => {
+                console.log(servers)
+                // Retuns an array of servers (see below)
+            }).catch(err => {
+                console.log(err);
+            })
         }
     },
 };

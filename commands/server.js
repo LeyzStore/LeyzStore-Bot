@@ -14,7 +14,7 @@ module.exports = {
         if(args[0] == "test") {
             const Application = new node.NodeactylApplication(host, key);
             let server = await Application.getAllServers();
-            message.channel.send(server)
+            console.log(server)
         }
     },
 };

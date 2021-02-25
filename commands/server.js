@@ -13,12 +13,8 @@ module.exports = {
     async execute(message, args) {
         if(args[0] == "test") {
             const Application = new node.NodeactylApplication(host, key);
-            Application.getAllServers().then(servers => {
-                console.log(servers)
-                // Retuns an array of servers (see below)
-            }).catch(err => {
-                console.log(err);
-            })
+            let servers = await Application.getAllServers();
+            console.log(servers)
         }
     },
 };

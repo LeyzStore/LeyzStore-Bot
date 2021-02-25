@@ -36,7 +36,7 @@ module.exports = {
                 .addField("DISK", thousands(disk, '.'), true)
                 .addField("NONE", "NONE :V", true)
                 .setFooter("Leyz Store", "https://cdn.discordapp.com/attachments/786854213916426240/814077727534612500/depositphotos_81700460-stock-illustration-monogram-l-logo-letter.jpg")
-              message.channel.send(ServerINFO)
+              message.channel.send("TEST")
             }
         }
     },

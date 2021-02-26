@@ -21,6 +21,9 @@ module.exports = {
             if (args[0] == "create"){
                 let user = await Application.createUser(args[1], args[2], args[3], args[4]);
                 console.log(user);
+                if(!user){
+                    message.channel.send("ERROR COK")
+                }
                 let userid = user.attributes.id;
                 let username = user.attributes.username;
                 let email = user.attributes.email;

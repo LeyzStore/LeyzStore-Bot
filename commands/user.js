@@ -24,9 +24,9 @@ module.exports = {
                 console.log(allUser.data);
                 message.channel.send("ERROR COK");
                 for(let i = 0; i< allUser.data.length; i++){
-                    console.log(allUser[i].attributes.username);
-                    console.log(allUser[i].data.attributes.email);
-                    if (allUser[i].attributes.email == args[1]){
+                    console.log(allUser.data[i].attributes.username);
+                    console.log(allUser.data[i].attributes.email);
+                    if (allUser.data[i].attributes.email == args[1]){
                         isUserExist = true;
                         break;
                     }

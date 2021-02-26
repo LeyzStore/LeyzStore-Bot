@@ -65,8 +65,17 @@ module.exports = {
             if (args[0] == "delete"){
                 let AllUsers = await Application.getAllUsers();
                 console.log(AllUsers.data)
+                let UserNotExit = false;
                 for(let i = 0; i < AllUsers.length; i++){
+                    if(AllUsers.data[i].attributes.id != args[1]){
+                        let UserNotExit = true;
+                        break;
+                    }
                 }
+                if(UserNotExit){
+                    message.channel.send("USER TIDAK DITEMUKAN")
+                }
+
             }
         }
     },

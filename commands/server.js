@@ -3,6 +3,10 @@
  *
  */
 const { prefix, token, host, key } = require('../config.json');     // Loads the "token" and "prefix" values from the config file
+const node = require('nodeactyl-beta');
+const node2 = require('nodeactyl-v1-support');
+const Admin = node2.Admin;
+const Application = new node.NodeactylApplication(host, key);
 const { MessageEmbed } = require("discord.js");
 const thousands = require('thousands');
 

@@ -63,9 +63,9 @@ module.exports = {
                 message.channel.send(UserInfo)
             }
             if (args[0] == "delete"){
-                let DeleteUser = await Application.deleteUser(args[1]);
-                if(!DeleteUser){
-                    return message.channel.send("GADA USERNYA")
+                let AllUsers = await Application.getAllUsers();
+                console.log(AllUsers)
+                for(let i = 0; i < AllUsers.length; i++){
                 }
             }
         }

@@ -49,5 +49,28 @@ module.exports = {
               }
         }
 //END OF LIST SERVER
+//START OF CREATE SERVER
+        if(args[0] == "create"){
+            let Application = new Nodeactyl.NodeactylClient(host, key);
+            let NewServer = await Application.createServer("latest", args[1], args[2], args[3], "quay.io/pterodactyl/core:java-11", "java -Xms128M -Xmx{{SERVER_MEMORY}}M -Dterminal.jline=false -Dterminal.ansi=true -jar {{SERVER_JARFILE}}", args[4], "0", args[5], "500", "0", "0", "2", "1");
+            console.log(NewServer)
+            if(!NewServer){
+              message.channel.send("ERROR COK")
+            } else {
+              let ServerNew = new MessageEmbed()
+              .setAuthor("SERVER CREATED", "https://cdn.discordapp.com/attachments/786854213916426240/814077727534612500/depositphotos_81700460-stock-illustration-monogram-l-logo-letter.jpg")
+              .setTitle(args[1] + ` (${NewServer.attributes.identifier})`)
+              .setDescription("Server Berhasil Dibuat Dengan Selamat")
+              .addField("RAM", thousands(args[4],'.'), true)
+              .addField("DISK", thousands(args[5],'.'), true)
+              .addField("CPU", "Unlimited", true)
+              .addField("PORT ID", NewServer.attributes.allocation, true)
+              .addField("VERSION", "Paper 1.15.2", true)
+              .addField("NODE", "SG-1", true)
+              .setFooter("Leyz Store", "https://cdn.discordapp.com/attachments/786854213916426240/814077727534612500/depositphotos_81700460-stock-illustration-monogram-l-logo-letter.jpg")
+            message.channel.send(ServerNew)
+        
+            }
+        }
     },
 };

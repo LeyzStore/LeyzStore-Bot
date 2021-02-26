@@ -19,14 +19,25 @@ module.exports = {
     async execute(message, args) {
         if (message.member.hasPermission(["MANAGE_GUILD", "ADMINISTRATOR"])) {
             if (args[0] == "create"){
-                Application.createUser("kaguvps@gmail.com", "KaguVPS", "Kagu", "Vps").then(user => {
-                    console.log(user)
-                    // Returns a user object (see below)
-                }).catch(err => {
-                    console.log(err);
-                })
+                let user = Application.createUser(args[1], args[2], args[3], args[4]);
+                let id = user.attributes.id;
+                let username = user.attributes.username;
+                let email = user.attributes.emaill;
+                let first_name = user.attributes.first_name;
+                let last_name = user.attributes.last_name;
+                // Application.createUser("kaguvps@gmail.com", "KaguVPS", "Kagu", "Vps").then(user => {
+                let UserInfo = new MessageEmbed()
+                    .setAuthor("Account Created", "https://cdn.discordapp.com/attachments/786854213916426240/814077727534612500/depositphotos_81700460-stock-illustration-monogram-l-logo-letter.jpg")
+                    .setColor("GREEN")
+                    .setTitle(`${username} (${id})`)
+                    .setDescription("Akun Kamu kamu berhasil di buat, Periksa Email Untuk Mengubah Password, Periksa Pada Bagian Promosi Jika Email Tidak Muncul")
+                    .addField("Username", username)
+                    .addField("Email", email)
+                    .addField("First Name", first_name, true)
+                    .addField("Last Name", last_name, true)
+                    .setFooter("Leyz Store", "https://cdn.discordapp.com/attachments/786854213916426240/814077727534612500/depositphotos_81700460-stock-illustration-monogram-l-logo-letter.jpg")
+                message.channel.send(UserInfo)
             }
-
         }
     },
 };

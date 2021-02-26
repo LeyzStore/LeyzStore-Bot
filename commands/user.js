@@ -21,15 +21,15 @@ module.exports = {
             if (args[0] == "create"){
                 let allUser = await Application.getAllUsers();
                 let isUserExist = false;
-                console.log(allUser);
+                console.log(allUser.data);
                 message.channel.send("ERROR COK");
                 for(let i = 0; i< allUser.data.length; i++){
-                    console.log(allUser[i].data);
+                    console.log(allUser[i].attributes.username);
                     console.log(allUser[i].data.attributes.email);
                     if (allUser[i].attributes.email == args[1]){
                         isUserExist = true;
                         break;
-                    }//UDAH NIH? IYA, kalo
+                    }
                 }
                 if (isUserExist){
                     message.channel.send("ERROR COK");

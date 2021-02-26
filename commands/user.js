@@ -22,22 +22,22 @@ module.exports = {
                 let allUser = await Application.getAllUsers();
                 let isEmailExist = false;
                 let isUsernameExist = false;
-                console.log(allUser.data);
+                //console.log(allUser.data);
                 for(let i = 0; i< allUser.data.length; i++){
                     // console.log(allUser.data[i].attributes.username);
                     // console.log(allUser.data[i].attributes.email);
-                    if (allUser.data[i].attributes.email == args[1]){
+                    if (allUser.data[i].attributes.email.toLowerCase() == args[1].toLowerCase()){
                         isEmailExist = true;
                         break;
                     }
-                    if (allUser.data[i].attributes.username == args[2]) {
+                    if (allUser.data[i].attributes.username.toLowerCase() == args[2].toLowerCase()) {
                         isUsernameExist = true;
                         break;
                     }
                 }
                 if (isEmailExist){
                     message.channel.send("Email Sudah Ada");
-                    return; //kalo belum ada lanjut teros
+                    return; //kalo belum ada lanjut teros //AFK BENTAR OM WC //chat discord klo udh, aku lagi yutuban :v
                 }
                 if (isUsernameExist){
                     message.channel.send("Username Sudah Ada");

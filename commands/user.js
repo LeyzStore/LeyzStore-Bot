@@ -64,7 +64,7 @@ module.exports = {
             }
             if (args[0] == "delete"){
                 let AllUsers = await Application.getAllUsers();
-                console.log(AllUsers)
+                console.log(AllUsers.data)
                 for(let i = 0; i < AllUsers.length; i++){
                 }
             }

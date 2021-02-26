@@ -1,8 +1,10 @@
 const fs = require('fs');                     // Loads the Filesystem library
 const Discord = require('discord.js');                  // Loads the discord API library
 const { prefix, token, host, key } = require('./config.json');     // Loads the "token" and "prefix" values from the config file
+const node = require('nodeactyl-beta');
 const node2 = require('nodeactyl-v1-support');
 const Admin = node2.Admin;
+const Application = new node.NodeactylApplication(host, key);
 const client = new Discord.Client(); // Initiates the client
 client.commands = new Discord.Collection(); // Creates an empty list in the client object to store all commands
 const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js')); // Loads the code for each command from the "commands" folder

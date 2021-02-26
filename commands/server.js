@@ -2,7 +2,7 @@
  * This class responds to anyone that types !bot talk and chooses one of the phrases below to respond with at random.
  *
  */
-const { prefix, token, host, key } = require('../config.json');     // Loads the "token" and "prefix" values from the config file
+const { prefix, token, host, key, keyuser } = require('../config.json');     // Loads the "token" and "prefix" values from the config file
 const node = require('nodeactyl-beta');
 const node2 = require('nodeactyl-v1-support');
 const Admin = node2.Admin;
@@ -85,7 +85,7 @@ module.exports = {
             }
         }
         if (args[0] == "test"){
-            Client.login(host, key, (logged_in, err) => {
+            Client.login(host, keyuser, (logged_in, err) => {
                 console.log(logged_in);
                 /** If you want call the function in here, 
                  * But we prefer you do have Application.login() at the top of your

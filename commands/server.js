@@ -6,6 +6,7 @@ const { prefix, token, host, key } = require('../config.json');     // Loads the
 const node = require('nodeactyl-beta');
 const node2 = require('nodeactyl-v1-support');
 const Admin = node2.Admin;
+const Client = node2.Client;
 const Application = new node.NodeactylApplication(host, key);
 const { MessageEmbed } = require("discord.js");
 const thousands = require('thousands');
@@ -83,7 +84,15 @@ module.exports = {
               return message.channel.send(`Berhasil Menghapus Server Dengan ID ${args[1]}`)
             }
         }
-
+        if (args[0] == "test"){
+            Client.login(host, key, (logged_in, err) => {
+                console.log(logged_in);
+                /** If you want call the function in here, 
+                 * But we prefer you do have Application.login() at the top of your
+                 * project and use the following syntax:
+                 */
+            });
+        }
         }
     },
 };

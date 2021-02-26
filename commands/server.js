@@ -6,6 +6,7 @@ const { prefix, token, host, key } = require('../config.json');     // Loads the
 const node = require('nodeactyl-beta');
 const node2 = require('nodeactyl-v1-support');
 const Admin = node2.Admin;
+const Application = new Nodeactyl.NodeactylClient(host, key);
 const { MessageEmbed } = require("discord.js");
 const thousands = require('thousands');
 
@@ -51,7 +52,6 @@ module.exports = {
 //END OF LIST SERVER
 //START OF CREATE SERVER
         if(args[0] == "create"){
-            let Application = new Nodeactyl.NodeactylClient(host, key);
             let NewServer = await Application.createServer("latest", args[1], args[2], args[3], "quay.io/pterodactyl/core:java-11", "java -Xms128M -Xmx{{SERVER_MEMORY}}M -Dterminal.jline=false -Dterminal.ansi=true -jar {{SERVER_JARFILE}}", args[4], "0", args[5], "500", "0", "0", "2", "1");
             console.log(NewServer)
             if(!NewServer){
@@ -70,6 +70,16 @@ module.exports = {
               .setFooter("Leyz Store", "https://cdn.discordapp.com/attachments/786854213916426240/814077727534612500/depositphotos_81700460-stock-illustration-monogram-l-logo-letter.jpg")
             message.channel.send(ServerNew)
         
+            }
+        } 
+ //END OF CREATE SERVER
+ //START OF DELETE SERVER       
+        if (args[0] == "delete"){
+            let ServerDelete = await Application.deleteServer(args[1]);
+            if(ServerDelete != true) {
+              return message.channel.send(`Server Dengan ID ${args[1]} Tidak Tersedia`)
+            } else {
+              return message.channel.send(`Berhasil Menghapus Server Dengan ID ${args[1]}`)
             }
         }
     },

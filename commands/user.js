@@ -23,13 +23,13 @@ module.exports = {
                 let isUserExist = false;
                 console.log(allUser);
                 message.channel.send("ERROR COK");
-                for(let i = 0; i< allUser.length; i++){
-                    console.log(allUser[i]);
-                    console.log(allUser[i].attributes.email);
+                for(let i = 0; i< allUser.data.length; i++){
+                    console.log(allUser[i].data);
+                    console.log(allUser[i].data.attributes.email);
                     if (allUser[i].attributes.email == args[1]){
                         isUserExist = true;
                         break;
-                    }//UDAH NIH?
+                    }//UDAH NIH? IYA, kalo
                 }
                 if (isUserExist){
                     message.channel.send("ERROR COK");

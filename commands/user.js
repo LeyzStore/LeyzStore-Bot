@@ -19,7 +19,7 @@ module.exports = {
     async execute(message, args) {
         if (message.member.hasPermission(["MANAGE_GUILD", "ADMINISTRATOR"])) {
             if (args[0] == "create"){
-                let user = await Application.createUser(args[1], args[2], args[3], args[4]);
+                let user = await Application.createUser("kaguvps@gmail.com", "KaguVPS", "Kagu", "Vps");
                 let userid = user.attributes.id;
                 let username = user.attributes.username;
                 let email = user.attributes.email;

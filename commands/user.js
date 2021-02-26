@@ -37,7 +37,7 @@ module.exports = {
                 }
                 if (isEmailExist){
                     message.channel.send("Email Sudah Ada");
-                    return; //kalo belum ada lanjut teros //AFK BENTAR OM WC //chat discord klo udh, aku lagi yutuban :v
+                    return; //kalo belum ada lanjut teros
                 }
                 if (isUsernameExist){
                     message.channel.send("Username Sudah Ada");
@@ -61,6 +61,12 @@ module.exports = {
                     .addField("Last Name", last_name, true)
                     .setFooter("Leyz Store", "https://cdn.discordapp.com/attachments/786854213916426240/814077727534612500/depositphotos_81700460-stock-illustration-monogram-l-logo-letter.jpg")
                 message.channel.send(UserInfo)
+            }
+            if (args[0] == "delete"){
+                let DeleteUser = await Application.deleteUser(args[1]);
+                if(!DeleteUser){
+                    return message.channel.send("GADA USERNYA")
+                }
             }
         }
     },

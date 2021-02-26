@@ -92,6 +92,13 @@ module.exports = {
                  * project and use the following syntax:
                  */
             });
+            Client.getServerStatus("23").then((status) => {
+                // You will have to play with these values
+                // Im not sure what all it returns
+                console.log(status)
+            }).catch((error) => {
+                console.log(error);
+            });
         }
         }
     },
